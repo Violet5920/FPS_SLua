@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-slua_profile-0003.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\UnrealEngineProgram\FPS_SLua\Intermediate\Build\Win64\FPS_SLuaEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.NoUndef.h.obj"
+"C:\UnrealEngineProgram\FPS_SLua\Plugins\slua_unreal\Intermediate\Build\Win64\UE4Editor\Development\slua_profile\Module.slua_profile.cpp.obj"
+"C:\UnrealEngineProgram\FPS_SLua\Plugins\slua_unreal\Intermediate\Build\Win64\UE4Editor\Development\slua_profile\Default.rc2.res"
+/OUT:"C:\UnrealEngineProgram\FPS_SLua\Plugins\slua_unreal\Intermediate\Build\Win64\UE4Editor\Development\slua_profile\UE4Editor-slua_profile-0003.lib"
+/INCLUDE:IMPLEMENT_MODULE_slua_profile

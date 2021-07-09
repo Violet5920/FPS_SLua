@@ -1,0 +1,42 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.slua_unreal.cpp.obj": [
+			"LatentDelegate.cpp.obj",
+			"Log.cpp.obj",
+			"LuaActor.cpp.obj",
+			"LuaArray.cpp.obj",
+			"LuaBase.cpp.obj",
+			"LuaBlueprintLibrary.cpp.obj",
+			"LuaCppBinding.cpp.obj",
+			"LuaDelegate.cpp.obj",
+			"LuaExtensionMethod.cpp.obj",
+			"LuaMap.cpp.obj",
+			"LuaMemoryProfile.cpp.obj",
+			"LuaObject.cpp.obj",
+			"LuaProfiler.cpp.obj",
+			"LuaReference.cpp.obj",
+			"LuaSet.cpp.obj",
+			"LuaSocketWrap.cpp.obj",
+			"LuaState.cpp.obj",
+			"LuaUserWidget.cpp.obj",
+			"LuaVar.cpp.obj",
+			"LuaWidgetTree.cpp.obj",
+			"LuaWrapper.cpp.obj",
+			"PropertyUtil.cpp.obj",
+			"slua_unreal.cpp.obj",
+			"SluaLib.cpp.obj",
+			"SluaUtil.cpp.obj"
+		],
+		"Module.slua_unreal.gen.cpp.obj": [
+			"LatentDelegate.gen.cpp.obj",
+			"LuaActor.gen.cpp.obj",
+			"LuaBase.gen.cpp.obj",
+			"LuaBlueprintLibrary.gen.cpp.obj",
+			"LuaDelegate.gen.cpp.obj",
+			"LuaUserWidget.gen.cpp.obj",
+			"PropertyUtil.gen.cpp.obj",
+			"slua_unreal.init.gen.cpp.obj"
+		]
+	}
+}

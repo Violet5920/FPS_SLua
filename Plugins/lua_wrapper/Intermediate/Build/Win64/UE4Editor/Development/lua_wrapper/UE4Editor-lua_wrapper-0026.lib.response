@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-lua_wrapper-0026.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\UnrealEngineProgram\FPS_SLua\Intermediate\Build\Win64\FPS_SLuaEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h.obj"
+"C:\UnrealEngineProgram\FPS_SLua\Plugins\lua_wrapper\Intermediate\Build\Win64\UE4Editor\Development\lua_wrapper\Module.lua_wrapper.cpp.obj"
+"C:\UnrealEngineProgram\FPS_SLua\Plugins\lua_wrapper\Intermediate\Build\Win64\UE4Editor\Development\lua_wrapper\Default.rc2.res"
+/OUT:"C:\UnrealEngineProgram\FPS_SLua\Plugins\lua_wrapper\Intermediate\Build\Win64\UE4Editor\Development\lua_wrapper\UE4Editor-lua_wrapper-0026.lib"
+/INCLUDE:IMPLEMENT_MODULE_lua_wrapper

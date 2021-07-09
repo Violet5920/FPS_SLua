@@ -1,0 +1,7 @@
+{
+	"BuildId": "14830424",
+	"Modules": 
+	{
+		"lua_wrapper": "UE4Editor-lua_wrapper.dll"
+	}
+}

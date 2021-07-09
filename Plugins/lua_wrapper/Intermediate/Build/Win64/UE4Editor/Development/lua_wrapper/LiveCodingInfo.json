@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.lua_wrapper.cpp.obj": [
+			"lua_wrapper.cpp.obj",
+			"lua_wrapperCommands.cpp.obj",
+			"lua_wrapperStyle.cpp.obj"
+		]
+	}
+}

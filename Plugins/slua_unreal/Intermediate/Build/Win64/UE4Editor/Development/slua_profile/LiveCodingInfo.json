@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.slua_profile.cpp.obj": [
+			"slua_profile.cpp.obj",
+			"slua_profile_inspector.cpp.obj",
+			"slua_remote_profile.cpp.obj"
+		]
+	}
+}
