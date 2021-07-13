@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "LuaActor.h"
+#include "Weapon/WeaponType.h"
 #include "WeaponBase.generated.h"
 
 class USoundCue;
@@ -37,7 +38,18 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category="WeaponPara|Weapon")
 	FName AttachSlotName;
 
+	//UPROPERTY(/*VisibleAnywhere,*/ BlueprintGetter= GetState, Category="WeaponPara|Weapon")
+	EWeaponState::Type State;
 
+	FTimerHandle WeaponAttak;
+
+	FTimerHandle FinishedAttack;
+
+	FTimerHandle FinishedEquip;
+
+	FTimerHandle FinishedReload;
+
+	float LastAttackTime;
 
 	//////////////////////////////////////////////////////////////////////////
 	// Sound
@@ -82,21 +94,44 @@ public:
 	// Input function
 
 	//Attacking By Weapon
-	UFUNCTION()
-	virtual void StartAttack();
+	UFUNCTION(BlueprintCallable, Category="Weapon|Attack")
+	void StartAttack();
 
 	//Stop weapon attack (Does not immediately stop the attack related state)
-	virtual void StopAttack();
+	UFUNCTION(BlueprintCallable, Category = "Weapon|Attack")
+	void StopAttack();
 
+	//Check the weapon can attack now.
+	UFUNCTION(BlueprintCallable, Category="Weapon|Attack")
+	virtual bool CanAttack()const;
+
+protected:
+	//Used to start attack timer
+	UFUNCTION(BlueprintNativeEvent, Category="Weapon|Attack")
+	void Attack();
+
+	//Used to end attack timer
+	UFUNCTION(BlueprintNativeEvent, Category = "Weapon|Attack")
+	void EndAttack();
+
+	//this is the real process of attack
+	UFUNCTION(Category="Weapon|Attack")
+	virtual bool DoAttack();
+
+	//Do some process after "DoAttack" 
+	//For example decrease the ammo count
+	UFUNCTION(Category="Weapon|Attack")
+	virtual void ProcessAttack();
 	//////////////////////////////////////////////////////////////////////////
 	// Inventory function
+public:
 
 	//Equip Weapon
-	UFUNCTION(BlueprintCallable, Category=Equip)
+	UFUNCTION(BlueprintCallable, Category="Weapon|Equip")
 	virtual void Equip(APawn* PawnOwner);
 
 	//UnEquip Wepaon
-	UFUNCTION(BlueprintCallable, Category=Equip)
+	UFUNCTION(BlueprintCallable, Category= "Weapon|Equip")
 	virtual void UnEquip();
 
 private:
@@ -104,15 +139,17 @@ private:
 	//Apply the new Owenr and instigater
 	void UpdateOwner(APawn* NewOwner);
 
+	void ProcessEquiped();
+
 protected:
 
-	//The extra Process when @Euip finished
-	UFUNCTION(BlueprintNativeEvent, Category=Equip)
-	void OnEquip();
+	//The extra Process when @"Euip" finished
+	UFUNCTION(BlueprintCallable, Category="Weapon|Equip")
+	virtual void OnEquiped();
 
-	//The extra Process when @UnEquip finished
-	UFUNCTION(BlueprintNativeEvent, Category=Equip)
-	void OnUnEquip();
+	//The extra Process when @"UnEquip" finished
+	UFUNCTION(BlueprintCallable, Category= "Weapon|Equip")
+	virtual void OnUnEquiped();
 
 	//Attach To Pawn
 	void AttachToOwner();
@@ -129,5 +166,19 @@ protected:
 	float PlayAnimMontage(UAnimMontage* Anim);
 
 	void StopPlayAnimMontage(UAnimMontage* Anim);
+
+	//Get weapon current state
+	UFUNCTION(BlueprintCallable, Category="Weapon|Get")
+	inline EWeaponState::Type GetWeaponState()const { return State; }
+
+	//Set weapon current state
+	UFUNCTION(BlueprintCallable, Category="Weapon|Set")
+	void SetWeaponState(EWeaponState::Type NewState);
+
+	//Check attack state
+	UFUNCTION(BlueprintCallable, Category="Weapon|Check")
+	bool IsAttacking() { return GetWeaponState() == EWeaponState::Attacking; }
+
+	inline float GetAttackIntervalSurplusTime();
 
 };

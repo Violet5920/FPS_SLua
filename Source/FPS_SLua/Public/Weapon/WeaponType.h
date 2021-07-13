@@ -1,14 +1,15 @@
 #include "WeaponType.generated.h"
 #pragma once
 UENUM(BlueprintType)
-namespace WeaponState
+namespace EWeaponState
 {
 	enum Type
 	{
 		Unusable = 0,
-		Euipping,
+		Euiped,
 		Reloadding,
-		Attacking
+		Attacking,
+		WaitAttackEnd
 	};
 }
 
