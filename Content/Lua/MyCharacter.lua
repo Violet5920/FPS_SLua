@@ -5,10 +5,10 @@ local validNum = 0.00001
 --Override Base
 ------------------------------
 
-function myCharacter:ReceiveBeginPlay()
+--function myCharacter:ReceiveBeginPlay()
 
 
-end
+--end
 
 
 --Character Input
